@@ -1,9 +1,9 @@
-package com.example.announcements
+package com.example.announcements.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.announcements.R
 import com.example.announcements.data.network.service.IApiService
-import com.example.announcements.extensions.observeOnIO
 import com.example.announcements.extensions.observeOnMain
 import com.example.announcements.extensions.subscribeOnIO
 import org.koin.android.ext.android.inject

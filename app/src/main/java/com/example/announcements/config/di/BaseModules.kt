@@ -4,6 +4,10 @@ import org.koin.dsl.module.Module
 
 object BaseModules {
     fun getAllModules(): List<Module> {
-        return listOf(networkModule)
+        return listOf(
+            networkModule,
+            repositoryModule,
+            formatModule
+        )
     }
 }
