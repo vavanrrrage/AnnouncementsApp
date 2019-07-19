@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             .subscribeOnIO()
             .observeOnMain()
             .subscribe({
-                val list = it
             },{
 
             })

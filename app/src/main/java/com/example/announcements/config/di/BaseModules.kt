@@ -7,7 +7,8 @@ object BaseModules {
         return listOf(
             networkModule,
             repositoryModule,
-            formatModule
+            formatModule,
+            uiModule
         )
     }
 }
