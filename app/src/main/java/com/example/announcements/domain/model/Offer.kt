@@ -1,5 +1,7 @@
 package com.example.announcements.domain.model
 
+import java.io.Serializable
+
 class Offer(
     val id: String,
     val city: String,
@@ -10,4 +12,4 @@ class Offer(
     val roomsCount: Int,
     val photoUrls: List<String>,
     val price: Int
-)
+) : Serializable

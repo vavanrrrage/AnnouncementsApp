@@ -8,7 +8,8 @@ object BaseModules {
             networkModule,
             repositoryModule,
             formatModule,
-            uiModule
+            uiModule,
+            detailsModule
         )
     }
 }
