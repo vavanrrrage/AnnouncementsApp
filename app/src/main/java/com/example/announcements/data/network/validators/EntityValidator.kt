@@ -11,5 +11,7 @@ class EntityValidator : IEntityValidator {
                 && entity.params.price != null
                 && entity.params.rooms_count != null
                 && entity.params.floors_count != null
+                && entity.params.total_area != null
+                && entity.params.living_area != null
     }
 }

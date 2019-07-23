@@ -28,7 +28,7 @@ class BottomItemDecoration(
         val itemPosition = parent.getChildAdapterPosition(view)
 
         if (itemPosition == 0) {
-            outRect.top = mOffset
+            outRect.bottom = mOffset
         }
     }
 }

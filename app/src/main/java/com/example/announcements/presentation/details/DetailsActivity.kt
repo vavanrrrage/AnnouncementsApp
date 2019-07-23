@@ -60,5 +60,9 @@ class DetailsActivity : BaseActivity<IDetailsContract.IDetailsViewModel, Details
         registerNonNullObserver(state.rooms) {
             tv_rooms.text = it
         }
+
+        registerNonNullObserver(state.plan) {
+            tv_plan.text = it
+        }
     }
 }

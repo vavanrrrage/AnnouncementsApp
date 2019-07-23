@@ -6,7 +6,8 @@ data class OfferVM(
     val id: String,
     val address: String,
     val floors: String,
-    val rooms: Int,
+    val rooms: String,
     val price: String,
+    val plan: String,
     val photos: List<String>
 ) : Serializable

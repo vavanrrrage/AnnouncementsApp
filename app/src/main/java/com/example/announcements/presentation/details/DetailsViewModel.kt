@@ -12,9 +12,10 @@ class DetailsViewModel(
         val offer = screen.offer
 
         state.price.value = offer.price
-        state.rooms.value = offer.rooms.toString()
+        state.rooms.value = offer.rooms
         state.address.value = offer.address
         state.floors.value = offer.floors
         state.photoUrls.value = offer.photos
+        state.plan.value = offer.plan
     }
 }

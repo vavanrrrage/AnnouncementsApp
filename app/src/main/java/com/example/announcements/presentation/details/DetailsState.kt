@@ -7,6 +7,7 @@ class DetailsState(
     val price: MutableLiveData<String> = MutableLiveData(),
     val floors: MutableLiveData<String> = MutableLiveData(),
     val rooms: MutableLiveData<String> = MutableLiveData(),
+    val plan: MutableLiveData<String> = MutableLiveData(),
     val address: MutableLiveData<String> = MutableLiveData(),
     val photoUrls: MutableLiveData<List<String>> = MutableLiveData()
 ) : BaseState()

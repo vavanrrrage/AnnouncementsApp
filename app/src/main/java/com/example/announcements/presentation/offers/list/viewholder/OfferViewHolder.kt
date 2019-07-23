@@ -25,6 +25,7 @@ class OfferViewHolder(
     private val tvAddress = view.findViewById<TextView>(R.id.tv_address)
     private val tvRooms = view.findViewById<TextView>(R.id.tv_rooms)
     private val tvFloors = view.findViewById<TextView>(R.id.tv_floors)
+    private val tvPlan = view.findViewById<TextView>(R.id.tv_plan)
     private val tvPrice = view.findViewById<TextView>(R.id.tv_price)
     private val llPlaceholder = view.findViewById<LinearLayout>(R.id.ll_placeholder)
 
@@ -39,9 +40,10 @@ class OfferViewHolder(
 
         offer?.let { offerVM ->
             tvAddress.text = offerVM.address
-            tvRooms.text = offerVM.rooms.toString()
+            tvRooms.text = offerVM.rooms
             tvFloors.text = offerVM.floors
             tvPrice.text = offerVM.price
+            tvPlan.text = offerVM.plan
 
             itemView.clicks()
                 .preventDoubleClick()

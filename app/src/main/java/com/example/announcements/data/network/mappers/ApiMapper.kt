@@ -23,7 +23,10 @@ class ApiMapper(
             entity.params?.floors_count ?: 1,
             entity.params?.rooms_count ?: 1,
             entity.photos?.map { it.photo ?: "" } ?: emptyList(),
-            entity.params?.price ?: 0
+            entity.params?.price ?: 0,
+            entity.params?.total_area ?: 0,
+            entity.params?.living_area ?: 0,
+            entity.params?.kitchen_area
         )
     }
 

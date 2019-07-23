@@ -8,5 +8,8 @@ class Offer(
     val floorsCount: Int,
     val roomsCount: Int,
     val photoUrls: List<String>,
-    val price: Int
+    val price: Int,
+    val totalArea: Int,
+    val livingArea: Int,
+    val kitchenArea: Int?
 )

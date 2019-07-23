@@ -19,8 +19,20 @@ class OffersMapper(
             offer.id,
             resourcesProvider.getString(R.string.address_format, offer.street, offer.houseNumber),
             resourcesProvider.getString(R.string.floor_format, offer.floor, offer.floorsCount),
-            offer.roomsCount,
+            resourcesProvider.getString(R.string.rooms_format, offer.roomsCount),
             resourcesProvider.getString(R.string.price_format, offer.price),
+            offer.kitchenArea?.let {
+                resourcesProvider.getString(
+                    R.string.plan_format,
+                    offer.totalArea / 100,
+                    offer.livingArea / 100,
+                    it / 100
+                )
+            } ?: resourcesProvider.getString(
+                R.string.plan_studio_format,
+                offer.totalArea / 100,
+                offer.livingArea / 100
+            ),
             offer.photoUrls
         )
     }
