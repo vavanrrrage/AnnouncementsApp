@@ -8,6 +8,7 @@
 ### Network - Retrofit2, OkHttp, Gson
 ### Async - RxJava2
 ### Views - AutoImageFlipper
+### Pagination - Paging Library
 
 ## Задание
 
