@@ -24,7 +24,6 @@
         <com.glide.slider.library.SliderLayout
                 android:id="@+id/image_slider"
                 android:layout_width="match_parent"
-                android:clickable="false"
                 android:layout_height="@dimen/dp240"/>
     </LinearLayout>
 

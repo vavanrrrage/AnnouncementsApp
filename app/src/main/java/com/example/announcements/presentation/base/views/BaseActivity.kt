@@ -9,7 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.announcements.extensions.nonNullObserve
-import com.example.announcements.presentation.base.states.BaseState
+import com.example.announcements.presentation.base.states.IState
 import com.example.announcements.presentation.base.viewmodel.IBaseViewModel
 import com.example.announcements.presentation.navigation.NavigatorConfig
 import me.aartikov.alligator.AndroidNavigator
@@ -21,7 +21,7 @@ import org.koin.core.parameter.emptyParameterDefinition
 import org.koin.core.parameter.parametersOf
 import java.io.Serializable
 
-abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : BaseState>
+abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : IState>
     : AppCompatActivity(), IBaseView {
     protected val navigator: AndroidNavigator by inject()
     protected var viewModel: IViewModel? = null
@@ -71,11 +71,7 @@ abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : BaseStat
 
 
     protected open fun subscribeOnStateChanges(state: State) {
-        registerNonNullObserver(
-            state.errors
-        ) {
-            showErrorDialog(it.title, it.message)
-        }
+        // Empty
     }
 
 

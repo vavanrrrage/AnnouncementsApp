@@ -51,6 +51,12 @@ class OfferViewHolder(
                     itemClickListener?.itemClicked(offerVM)
                 }
 
+            imageSlider.clicks()
+                .preventDoubleClick()
+                .subscribe {
+                    itemClickListener?.itemClicked(offerVM)
+                }
+
             bindPhotos(offerVM.photos)
         }
     }

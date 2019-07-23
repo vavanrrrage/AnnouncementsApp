@@ -5,14 +5,14 @@ import androidx.lifecycle.ViewModel
 import com.example.announcements.data.providers.IResourcesProvider
 import com.example.announcements.extensions.observeOnMain
 import com.example.announcements.presentation.base.events.IEvent
-import com.example.announcements.presentation.base.states.BaseState
+import com.example.announcements.presentation.base.states.IState
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 import me.aartikov.alligator.Navigator
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
-abstract class BaseViewModel<State : BaseState> : ViewModel(),
+abstract class BaseViewModel<State : IState> : ViewModel(),
     IBaseViewModel<State>,
     KoinComponent {
     private var firstInit = true
