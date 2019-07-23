@@ -6,6 +6,7 @@ import com.example.announcements.R
 import com.example.announcements.domain.contracts.IOffersContract
 import com.example.announcements.presentation.base.decorations.BottomItemDecoration
 import com.example.announcements.presentation.base.views.BaseActivity
+import com.example.announcements.presentation.offers.list.OfferVM
 import com.example.announcements.presentation.offers.list.OffersAdapter
 import kotlinx.android.synthetic.main.activity_offers.*
 import me.aartikov.alligator.annotations.RegisterScreen
@@ -38,10 +39,15 @@ class OffersActivity : BaseActivity<IOffersContract.IOffersViewModel, OffersStat
         }
     }
 
+    override fun itemClicked(item: OfferVM) {
+        viewModel?.eventsSubject?.onNext(OffersEvents.OfferPressedEvent(item))
+    }
+
     private fun setupRecyclerView() {
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rv_offers.layoutManager = layoutManager
         rv_offers.addItemDecoration(BottomItemDecoration(this))
         rv_offers.adapter = adapter
+        adapter.itemClickListener = this@OffersActivity
     }
 }

@@ -7,6 +7,7 @@ import com.example.announcements.domain.contracts.IOffersContract
 import com.example.announcements.domain.executor.MainThreadExecutor
 import com.example.announcements.presentation.base.events.IEvent
 import com.example.announcements.presentation.base.viewmodel.BaseViewModel
+import com.example.announcements.presentation.details.DetailsScreen
 import com.example.announcements.presentation.offers.list.OfferVM
 import java.util.concurrent.Executors
 
@@ -30,8 +31,8 @@ class OffersViewModel(
 
     override fun onEventChanged(event: IEvent) {
         when (event) {
-            is OffersEvents.ItemPressedEvent -> {
-                // navigate
+            is OffersEvents.OfferPressedEvent -> {
+                navigator.goForward(DetailsScreen(event.offerVM))
             }
         }
     }

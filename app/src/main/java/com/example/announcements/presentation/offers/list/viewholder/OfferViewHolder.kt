@@ -7,13 +7,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.announcements.R
 import com.example.announcements.extensions.gone
+import com.example.announcements.extensions.preventDoubleClick
 import com.example.announcements.extensions.setupDefault
 import com.example.announcements.extensions.visible
+import com.example.announcements.presentation.base.listeners.IItemClickListener
 import com.example.announcements.presentation.offers.list.OfferVM
 import com.glide.slider.library.SliderLayout
 import com.glide.slider.library.SliderTypes.DefaultSliderView
+import com.jakewharton.rxbinding2.view.clicks
 
-class OfferViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class OfferViewHolder(
+    view: View,
+    private val itemClickListener: IItemClickListener<OfferVM>?
+) : RecyclerView.ViewHolder(view) {
     private val imageSlider = view.findViewById<SliderLayout>(R.id.image_slider)
     private val tvAddress = view.findViewById<TextView>(R.id.tv_address)
     private val tvRooms = view.findViewById<TextView>(R.id.tv_rooms)
@@ -29,13 +35,19 @@ class OfferViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(offer: OfferVM?) {
         this.offer = offer
 
-        offer?.let {
-            tvAddress.text = it.address
-            tvRooms.text = it.rooms.toString()
-            tvFloors.text = it.floors
-            tvPrice.text = it.price
+        offer?.let { offerVM ->
+            tvAddress.text = offerVM.address
+            tvRooms.text = offerVM.rooms.toString()
+            tvFloors.text = offerVM.floors
+            tvPrice.text = offerVM.price
 
-            bindPhotos(it.photos)
+            itemView.clicks()
+                .preventDoubleClick()
+                .subscribe {
+                    itemClickListener?.itemClicked(offerVM)
+                }
+
+            bindPhotos(offerVM.photos)
         }
     }
 
@@ -56,10 +68,10 @@ class OfferViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     companion object {
-        fun create(parent: ViewGroup): OfferViewHolder {
+        fun create(parent: ViewGroup, itemClickListener: IItemClickListener<OfferVM>?): OfferViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.offer_item, parent, false)
-            return OfferViewHolder(view)
+            return OfferViewHolder(view, itemClickListener)
         }
     }
 }

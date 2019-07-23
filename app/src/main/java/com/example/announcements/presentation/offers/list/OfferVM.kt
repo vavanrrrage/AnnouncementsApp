@@ -1,5 +1,7 @@
 package com.example.announcements.presentation.offers.list
 
+import java.io.Serializable
+
 data class OfferVM(
     val id: String,
     val address: String,
@@ -7,4 +9,4 @@ data class OfferVM(
     val rooms: Int,
     val price: String,
     val photos: List<String>
-)
+) : Serializable

@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.announcements.R
 import com.example.announcements.data.network.NetworkState
+import com.example.announcements.presentation.base.listeners.IItemClickListener
 import com.example.announcements.presentation.offers.list.viewholder.NetworkStateViewHolder
 import com.example.announcements.presentation.offers.list.viewholder.OfferViewHolder
 
 class OffersAdapter : PagedListAdapter<OfferVM, RecyclerView.ViewHolder>(POST_COMPARATOR) {
     private var networkState: NetworkState? = null
+    var itemClickListener: IItemClickListener<OfferVM>? = null
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
             R.layout.offer_item -> (holder as OfferViewHolder).bind(getItem(position))
@@ -18,21 +21,9 @@ class OffersAdapter : PagedListAdapter<OfferVM, RecyclerView.ViewHolder>(POST_CO
         }
     }
 
-//    override fun onBindViewHolder(
-//        holder: RecyclerView.ViewHolder,
-//        position: Int,
-//        payloads: MutableList<Any>) {
-//        if (payloads.isNotEmpty()) {
-//            val item = getItem(position)
-//            (holder as RedditPostViewHolder).updateScore(item)
-//        } else {
-//            onBindViewHolder(holder, position)
-//        }
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.offer_item -> OfferViewHolder.create(parent)
+            R.layout.offer_item -> OfferViewHolder.create(parent, itemClickListener)
             R.layout.network_state_item -> NetworkStateViewHolder.create(parent)
             else -> throw IllegalArgumentException("unknown view type $viewType")
         }
