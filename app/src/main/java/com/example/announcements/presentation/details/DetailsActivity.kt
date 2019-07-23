@@ -37,9 +37,9 @@ class DetailsActivity : BaseActivity<IDetailsContract.IDetailsViewModel, Details
         }
 
         registerNonNullObserver(state.photoUrls) {
-            // todo add stub (placeholder)
             if (it.isNotEmpty()) {
                 image_slider.visible()
+                ll_placeholder.gone()
                 for (url in it) {
                     val sliderView = DefaultSliderView(this)
                     sliderView.image(url)
@@ -49,6 +49,7 @@ class DetailsActivity : BaseActivity<IDetailsContract.IDetailsViewModel, Details
                 }
             } else {
                 image_slider.gone()
+                ll_placeholder.visible()
             }
         }
 

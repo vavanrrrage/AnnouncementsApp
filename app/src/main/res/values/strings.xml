@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Announcements</string>
+
+    <!-- Formats -->
     <string name="floor_format">%1$d из %2$d</string>
     <string name="price_format">%1$d Р</string>
-    <string name="address_format">%1$s, %2$s, %3$s</string>
+    <string name="address_format">%1$s, %2$s</string>
+
+    <!-- Errors -->
+    <string name="unknown_error_message">Неизвестная ошибка</string>
+    <string name="error_title">Произошла ошибка</string>
 </resources>

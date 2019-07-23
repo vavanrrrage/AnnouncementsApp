@@ -32,6 +32,10 @@ class OffersActivity : BaseActivity<IOffersContract.IOffersViewModel, OffersStat
 
         registerNonNullObserver(state.networkState) {
             adapter.setNetworkState(it)
+
+            if (!it.msg.isNullOrEmpty()) {
+                showErrorDialog(getString(R.string.error_title), it.msg)
+            }
         }
 
         registerNonNullObserver(state.offersPagedList) {

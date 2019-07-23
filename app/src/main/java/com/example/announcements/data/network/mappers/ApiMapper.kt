@@ -17,9 +17,8 @@ class ApiMapper(
     private fun parseEntity(entity: OfferEntity): Offer {
         return Offer(
             entity._id ?: "",
-            entity.params?.city?.name_ru ?: "",
-            entity.params?.street?.name_ru ?: "",
-            entity.params?.house_number ?: "",
+            entity.params?.house_addresses?.get(0)?.street?.name_ru ?: "",
+            entity.params?.house_addresses?.get(0)?.house_number ?: "",
             entity.params?.floor ?: 1,
             entity.params?.floors_count ?: 1,
             entity.params?.rooms_count ?: 1,

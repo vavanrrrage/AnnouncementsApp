@@ -3,6 +3,7 @@ package com.example.announcements.presentation.offers.list.viewholder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.announcements.R
@@ -25,6 +26,7 @@ class OfferViewHolder(
     private val tvRooms = view.findViewById<TextView>(R.id.tv_rooms)
     private val tvFloors = view.findViewById<TextView>(R.id.tv_floors)
     private val tvPrice = view.findViewById<TextView>(R.id.tv_price)
+    private val llPlaceholder = view.findViewById<LinearLayout>(R.id.ll_placeholder)
 
     private var offer: OfferVM? = null
 
@@ -52,9 +54,9 @@ class OfferViewHolder(
     }
 
     private fun bindPhotos(photos: List<String>) {
-        // todo add stub (placeholder)
         if (photos.isNotEmpty()) {
             imageSlider.visible()
+            llPlaceholder.gone()
             for (url in photos) {
                 val sliderView = DefaultSliderView(this.itemView.context)
                 sliderView.image(url)
@@ -64,6 +66,7 @@ class OfferViewHolder(
             }
         } else {
             imageSlider.gone()
+            llPlaceholder.visible()
         }
     }
 

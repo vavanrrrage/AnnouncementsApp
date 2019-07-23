@@ -45,7 +45,7 @@ val networkModule = module {
     }
 
     single<IApiService> {
-        ApiService(get(), get())
+        ApiService(get(), get(), get())
     }
 
     single<IApiMapper> {

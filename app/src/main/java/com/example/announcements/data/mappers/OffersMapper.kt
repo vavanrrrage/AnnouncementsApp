@@ -17,7 +17,7 @@ class OffersMapper(
     override fun map(offer: Offer): OfferVM {
         return OfferVM(
             offer.id,
-            resourcesProvider.getString(R.string.address_format, offer.city, offer.street, offer.houseNumber),
+            resourcesProvider.getString(R.string.address_format, offer.street, offer.houseNumber),
             resourcesProvider.getString(R.string.floor_format, offer.floor, offer.floorsCount),
             offer.roomsCount,
             resourcesProvider.getString(R.string.price_format, offer.price),

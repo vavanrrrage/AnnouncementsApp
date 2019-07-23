@@ -4,10 +4,29 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <com.glide.slider.library.SliderLayout
-            android:id="@+id/image_slider"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp240"/>
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:id="@+id/ll_placeholder"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp240">
+            <ImageView
+                    android:id="@+id/iv_placeholder"
+                    android:layout_width="@dimen/dp96"
+                    android:layout_height="@dimen/dp96"
+                    android:src="@drawable/ic_photo_placeholder"/>
+        </LinearLayout>
+
+        <com.glide.slider.library.SliderLayout
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:clickable="false"
+                android:layout_height="@dimen/dp240"/>
+    </LinearLayout>
 
     <LinearLayout
             android:orientation="vertical"
