@@ -17,6 +17,9 @@ final def appcompatSupportLibraryVersion = "1.0.2"
 final def supportLibraryVersion = "1.0.0"
 final def constraintLayoutVersion = "1.1.3"
 final def ktxVersion = "1.0.2"
+final def pagingVersion = "2.1.0"
+
+final def glideSliderVersion= "1.4.1"
 
 android {
     compileSdkVersion 28
@@ -72,5 +75,13 @@ dependencies {
     // Navigation
     implementation "com.github.aartikov.Alligator:alligator:$alligatorVersion"
     kapt "com.github.aartikov.Alligator:alligator-compiler:$alligatorVersion"
+
+    // Paging
+
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+    implementation "androidx.paging:paging-rxjava2:$pagingVersion"
+
+    //  Image Slider
+    implementation "com.github.firdausmaulan:GlideSlider:$glideSliderVersion"
 
 }

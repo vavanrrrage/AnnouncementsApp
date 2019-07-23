@@ -1,5 +1,12 @@
 package com.example.announcements.presentation.details
 
+import androidx.lifecycle.MutableLiveData
 import com.example.announcements.presentation.base.states.BaseState
 
-class DetailsState : BaseState()
+class DetailsState(
+    val price: MutableLiveData<String> = MutableLiveData(),
+    val floors: MutableLiveData<String> = MutableLiveData(),
+    val rooms: MutableLiveData<String> = MutableLiveData(),
+    val address: MutableLiveData<String> = MutableLiveData(),
+    val photoUrls: MutableLiveData<List<String>> = MutableLiveData()
+) : BaseState()

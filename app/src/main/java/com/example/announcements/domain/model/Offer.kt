@@ -2,7 +2,7 @@ package com.example.announcements.domain.model
 
 import java.io.Serializable
 
-class Offer(
+data class Offer(
     val id: String,
     val city: String,
     val street: String,

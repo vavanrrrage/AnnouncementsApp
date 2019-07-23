@@ -6,10 +6,13 @@ object BaseModules {
     fun getAllModules(): List<Module> {
         return listOf(
             networkModule,
-            repositoryModule,
+            dataSourceModule,
             formatModule,
             uiModule,
-            detailsModule
+            detailsModule,
+            offersModule,
+            navigationModule,
+            mapperModule
         )
     }
 }

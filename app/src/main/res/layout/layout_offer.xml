@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.glide.slider.library.SliderLayout
+            android:id="@+id/image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp240"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="@dimen/default_spacing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/tv_rooms"
+                tools:text="3-к"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_floors"
+                tools:text="2 / 8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_address"
+                tools:text="Новосибирск, Залесского, 5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_price"
+                tools:text="100 500 Р"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
