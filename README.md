@@ -8,7 +8,7 @@
 ### Network - Retrofit2, OkHttp, Gson
 ### Async - RxJava2
 ### Views - AutoImageFlipper
-### Pagination - GliseSlider https://github.com/firdausmaulan/GlideSlider
+### Pagination - GlideSlider https://github.com/firdausmaulan/GlideSlider
 
 ## Задание
 
