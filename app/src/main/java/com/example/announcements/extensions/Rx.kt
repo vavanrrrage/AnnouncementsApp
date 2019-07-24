@@ -1,29 +1,11 @@
 package com.example.announcements.extensions
 
-import io.reactivex.*
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-
-interface IRxSchedulers {
-
-    fun io(): Scheduler
-
-    fun main(): Scheduler
-}
-
-object RxSchedulers : IRxSchedulers {
-
-    override fun io(): Scheduler = Schedulers.io()
-
-    override fun main(): Scheduler = AndroidSchedulers.mainThread()
-}
-
-object RxSchedulersTest : IRxSchedulers {
-
-    override fun io(): Scheduler = Schedulers.trampoline()
-
-    override fun main(): Scheduler = Schedulers.trampoline()
-}
 
 fun <T> Observable<T>.observeOnIO(): Observable<T> = observeOn(Schedulers.io())
 

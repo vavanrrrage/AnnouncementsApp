@@ -6,6 +6,6 @@ import org.koin.dsl.module.module
 
 val mapperModule = module {
     single<IOffersMapper> {
-        OffersMapper(get(), get(), get())
+        OffersMapper(get(), get())
     }
 }

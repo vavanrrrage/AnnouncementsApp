@@ -15,6 +15,7 @@ import org.koin.standalone.get
 abstract class BaseViewModel<State : IState> : ViewModel(),
     IBaseViewModel<State>,
     KoinComponent {
+
     private var firstInit = true
     val resourcesProvider: IResourcesProvider = get()
     val navigator: Navigator = get()

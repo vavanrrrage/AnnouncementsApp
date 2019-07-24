@@ -8,7 +8,7 @@ import java.util.*
 
 val formatModule = module {
     single<ITextFormatter> {
-        TextFormatter()
+        TextFormatter(get(), get())
     }
 
     single<Locale> {

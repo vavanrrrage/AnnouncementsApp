@@ -2,15 +2,13 @@ package com.example.announcements.data.mappers
 
 import com.example.announcements.R
 import com.example.announcements.data.providers.IResourcesProvider
+import com.example.announcements.domain.format.text.ITextFormatter
 import com.example.announcements.domain.model.Offer
 import com.example.announcements.presentation.offers.list.OfferVM
-import java.text.DecimalFormatSymbols
-import java.util.*
 
 class OffersMapper(
     private val resourcesProvider: IResourcesProvider,
-    private val locale: Locale,
-    private val decimalFormatSymbols: DecimalFormatSymbols
+    private val textFormatter: ITextFormatter
 ) : IOffersMapper {
     override fun map(offers: List<Offer>): List<OfferVM> {
         return offers.map {
@@ -24,7 +22,7 @@ class OffersMapper(
             resourcesProvider.getString(R.string.address_format, offer.street, offer.houseNumber),
             resourcesProvider.getString(R.string.floor_format, offer.floor, offer.floorsCount),
             resourcesProvider.getString(R.string.rooms_format, offer.roomsCount),
-            resourcesProvider.getString(R.string.price_format, getFormattedPrice(offer.price)),
+            resourcesProvider.getString(R.string.price_format, textFormatter.formatPrice(offer.price)),
             offer.kitchenArea?.let {
                 resourcesProvider.getString(
                     R.string.plan_format,
@@ -39,11 +37,5 @@ class OffersMapper(
             ),
             offer.photoUrls
         )
-    }
-
-    // поискал готовое решение, но ничего такого не нашел
-    private fun getFormattedPrice(value: Int): String {
-        val defaultFormatted = String.format(locale, "%,d", value)
-        return defaultFormatted.replace(decimalFormatSymbols.groupingSeparator.toString(), " ")
     }
 }

@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextView">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextView.Common">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp15</item>
+    </style>
+
+    <style name="TextView.Price">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sp17</item>
+    </style>
+
 </resources>

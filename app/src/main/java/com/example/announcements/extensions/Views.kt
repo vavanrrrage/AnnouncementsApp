@@ -10,28 +10,8 @@ fun View.visible() {
     visibility = View.VISIBLE
 }
 
-fun View.invisible() {
-    visibility = View.INVISIBLE
-}
-
 fun View.gone() {
     visibility = View.GONE
-}
-
-fun Boolean.toVisibleOrInvisible(): Int {
-    return if (this) {
-        View.VISIBLE
-    } else {
-        View.INVISIBLE
-    }
-}
-
-fun Boolean.toVisibleOrGone(): Int {
-    return if (this) {
-        View.VISIBLE
-    } else {
-        View.GONE
-    }
 }
 
 fun SliderLayout.setupDefault() {

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import com.example.announcements.R
 import com.example.announcements.extensions.nonNullObserve
 import com.example.announcements.presentation.base.states.IState
 import com.example.announcements.presentation.base.viewmodel.IBaseViewModel
@@ -23,13 +24,10 @@ import java.io.Serializable
 
 abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : IState>
     : AppCompatActivity(), IBaseView {
-    protected val navigator: AndroidNavigator by inject()
+    private val navigator: AndroidNavigator by inject()
     protected var viewModel: IViewModel? = null
     protected abstract val layoutId: Int
-    protected lateinit var navigatorConfig: NavigatorConfig
-
-//    private var attachFailedReceiver: BroadcastReceiver? = null
-
+    private lateinit var navigatorConfig: NavigatorConfig
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,11 +42,6 @@ abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : IState>
     override fun onResumeFragments() {
         super.onResumeFragments()
         navigatorConfig.bindNavigation()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        navigatorConfig.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -80,7 +73,7 @@ abstract class BaseActivity<IViewModel : IBaseViewModel<State>, State : IState>
             .setTitle(title)
             .setMessage(message)
             .setCancelable(false)
-            .setPositiveButton("Ok") { _, _ -> }
+            .setPositiveButton(R.string.ok) { _, _ -> }
         val alertDialog = builder.create()
         alertDialog.show()
     }
