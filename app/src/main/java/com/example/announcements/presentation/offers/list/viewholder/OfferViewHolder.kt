@@ -51,12 +51,6 @@ class OfferViewHolder(
                     itemClickListener?.itemClicked(offerVM)
                 }
 
-            imageSlider.clicks()
-                .preventDoubleClick()
-                .subscribe {
-                    itemClickListener?.itemClicked(offerVM)
-                }
-
             bindPhotos(offerVM.photos)
         }
     }
@@ -68,6 +62,13 @@ class OfferViewHolder(
             for (url in photos) {
                 val sliderView = DefaultSliderView(this.itemView.context)
                 sliderView.image(url)
+
+                // this lib doesn't allow to set OnClickListener to whole view
+                sliderView.setOnSliderClickListener {
+                    offer?.let {
+                        itemClickListener?.itemClicked(it)
+                    }
+                }
 
                 imageSlider.addSlider(sliderView)
 
